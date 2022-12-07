@@ -77,6 +77,8 @@ export class CreateWallet extends React.Component<{}, WalletProps> {
             onChange={this.handleChange}
             id="filled-basic"
             label="Seed Phrase"
+            multiline
+            rows={5}
             variant="outlined"
             color="primary"
             focused
@@ -95,7 +97,22 @@ export class CreateWallet extends React.Component<{}, WalletProps> {
           onClick={this.generateSeedphrase}
           className="ual-generic-button"
         >
-          Generate Automatic SeedPhrase
+          Random
+        </Button>
+
+        <Button
+          style={{
+            height: "40px",
+            marginTop: "10px",
+            marginLeft: "10px",
+            marginRight: "10px"
+          }}
+          role="button"
+          variant="outlined"
+          onClick={() => navigator.clipboard.writeText(this.state.value)}
+          className="ual-generic-button"
+        >
+          Copy
         </Button>
 
         <hr />
@@ -112,7 +129,7 @@ export class CreateWallet extends React.Component<{}, WalletProps> {
           onClick={this.handleSubmit}
           className="ual-generic-button"
         >
-          Generate From SeedPhrase
+          Create
         </Button>
 
         <Button
@@ -128,7 +145,7 @@ export class CreateWallet extends React.Component<{}, WalletProps> {
           type="submit"
           className="ual-generic-button"
         >
-          Generate From JSON
+          Open
         </Button>
       </div>
     );
